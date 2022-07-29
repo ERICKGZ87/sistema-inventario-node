@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/bootstrap.css")
+        title Sistema Inventario
+    body 
+        .container.mt-5
+            .row
+                .col-md-3 
+                .col-md-6
+                      include header
+                .col-md-3
+
+            .row.mt-5
+                .col-md-12 
+                    block contenido
+
+            .row.mt-5
+                include footer
+        
+        
+      
