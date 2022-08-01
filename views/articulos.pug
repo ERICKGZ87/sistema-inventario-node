@@ -2,18 +2,27 @@
 extends ./layout/index
 
 block contenido
-    h1.mt-3 lista de productos
 
-    table.table.mt-3
+    h1.mt-3 lista de productos
+    if(mensajeEliminado)
+        .alert.col.alert-danger.text-center Se ha eliminado el articulo
+
+    table.table.mt-5
         thead
             tr
          
             th(scope="col") id
             th(scope="col") nombre
             th(scope="col") stok
+            th(scope="col") acciones
+            th(scope="col") 
         tbody
         each articulos in articulosLista
             tr
             td= articulos.id
             td= articulos.nombre
             td= articulos.stock
+            td
+                .div.boton
+                    a(href=`/editarArticulo/${articulos.id}`, class="btn btn-warning mx-1") Editar
+                    a(href=`articulo/${articulos.id}`, class="btn btn-danger mx-1") Borrar

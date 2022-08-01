@@ -1,0 +1,27 @@
+extends ./layout/index
+
+block contenido
+    h3.mt-5 editar Articulos
+
+    .row.justify-content-center
+        .col-md-4
+        .col-md-4
+            form(action=`/editarArticulo/${id}` method="POST")
+                .form-group
+                    label(for="id") Id
+                    input#id(type="text", placeholder="Nombre", name="id",class="form-control",
+                    value=id,readonly='')
+
+                    label(for="nombre") Nombre
+                    input#nombre(type="text", placeholder="Nombre", name="nombre",class="form-control",value=nombre)
+                .form-group
+                    label(for="stock") stock
+                    input#stock(type="text", placeholder="stock", name="stock",class="form-control",value=stock)
+
+                button.btn.btn-success.btn-block(type="submit") Guardar Cambios
+                
+                if(campos)
+                    .alert.col.alert-success.text-center Se edito el registro!
+                if(campos===false)
+                    .alert.col.alert-danger.text-center Todos los campos son obligatorios
+        .col-md-4

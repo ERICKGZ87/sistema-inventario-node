@@ -1,22 +1,23 @@
 import express from 'express'
-import {pageArticulos} from "../controllers/paginasControles.js"
+import {pageArticulos,pageCrearArticulo,pageInicio} from "../controllers/paginasControles.js"
+import {GuardarArticulos} from "../controllers/GuardarArticulo.js"
+import {EliminarProducto} from "../controllers/EliminarArticulo.js"
+import {EditarArticulos} from "../controllers/editarArticulo.js"
+import {GuardarEdicionArticulo} from "../controllers/GuardarEdicionArticulo.js"
 
 const router=express.Router() // instance exppres utilizando su router
 
 //rutas 
-router.get("/",(req,res)=>{
-
-    const data="me llamo erick"
-
-    res.render("inicio",
-    {data})
-})
+router.get("/",pageInicio)
 
 router.get("/articulos",pageArticulos)
 
-router.get("/Crear-articulo",(req,res)=>{
+router.get("/crearArticulo",pageCrearArticulo)
+router.post("/crearArticulo",GuardarArticulos)
 
-    res.send("articulos")
-})
+router.get("/editarArticulo/:id",EditarArticulos)
+router.post("/editarArticulo/:id",GuardarEdicionArticulo)
+
+router.get('/articulo/:id',EliminarProducto )
 
 export default router;

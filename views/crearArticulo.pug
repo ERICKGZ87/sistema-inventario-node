@@ -1,0 +1,28 @@
+extends ./layout/index
+
+block contenido
+    h3.mt-5 Crear Articulos
+
+    .row.justify-content-center
+        .col-md-4
+        .col-md-4
+            form(action="/crearArticulo" method="POST")
+                .form-group
+                    label(for="nombre") Nombre
+                    input(type="text", placeholder="Nombre", name="nombre",class="form-control")
+                .form-group
+                    label(for="stock") stock
+                    input(type="text", placeholder="stock", name="stock",class="form-control")
+
+                button.btn.btn-success.btn-block(type="submit") Enviar
+                
+                if(campos)
+                    .alert.col.alert-success.text-center Se agrego el registro!
+                if(campos===false)
+                    .alert.col.alert-danger.text-center Todos los campos son obligatorios
+        .col-md-4
+        
+
+     
+
+
